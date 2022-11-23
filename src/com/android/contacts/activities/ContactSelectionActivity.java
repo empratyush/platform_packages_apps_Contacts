@@ -107,8 +107,8 @@ public class ContactSelectionActivity extends AppCompatContactsActivity implemen
     protected void onCreate(Bundle savedState) {
         super.onCreate(savedState);
 
-        getWindow().addSystemFlags(android.view.WindowManager.LayoutParams
-            .SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
+        /*getWindow().addSystemFlags(android.view.WindowManager.LayoutParams
+            .SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);*/
 
         RequestPermissionsActivity.startPermissionActivityIfNeeded(this);
 

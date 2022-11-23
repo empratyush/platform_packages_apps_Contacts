@@ -576,8 +576,8 @@ public class ImportVCardActivity extends Activity implements ImportVCardDialogFr
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 
-        getWindow().addSystemFlags(android.view.WindowManager.LayoutParams
-            .SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
+        /*getWindow().addSystemFlags(android.view.WindowManager.LayoutParams
+            .SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);*/
 
         Uri sourceUri = getIntent().getData();
 
