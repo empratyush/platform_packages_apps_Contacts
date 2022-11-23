@@ -468,7 +468,7 @@ public class DisplayOptionsPreferenceFragment extends PreferenceFragment
         for (ResolveInfo resolveInfo : resolveInfos) {
             String packageName = resolveInfo.activityInfo.packageName;
             if (packageManager.checkPermission(
-                    android.Manifest.permission.SET_DEFAULT_ACCOUNT_FOR_CONTACTS, packageName)
+                    ContactsPreferences.SET_DEFAULT_ACCOUNT_FOR_CONTACTS, packageName)
                     == PackageManager.PERMISSION_GRANTED) {
                 return packageName;
             }

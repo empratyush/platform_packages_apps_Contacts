@@ -16,7 +16,6 @@
 
 package com.android.contacts.preference;
 
-import static android.Manifest.permission.SET_DEFAULT_ACCOUNT_FOR_CONTACTS;
 
 import android.accounts.Account;
 import android.annotation.SuppressLint;
@@ -49,6 +48,9 @@ import java.util.List;
  * Manages user preferences for contacts.
  */
 public class ContactsPreferences implements OnSharedPreferenceChangeListener {
+
+    //import static android.Manifest.permission.SET_DEFAULT_ACCOUNT_FOR_CONTACTS;
+    public static final String SET_DEFAULT_ACCOUNT_FOR_CONTACTS= "android.permission.SET_DEFAULT_ACCOUNT_FOR_CONTACTS";
 
     /**
      * The value for the DISPLAY_ORDER key to show the given name first.
@@ -279,8 +281,8 @@ public class ContactsPreferences implements OnSharedPreferenceChangeListener {
                         .permitDiskReads()
                         .build());
         try {
-            ContactsContract.Settings.setDefaultAccount(mContext.getContentResolver(),
-                    accountWithDataSet == null ? null : accountWithDataSet.getAccountOrNull());
+            /*ContactsContract.Settings.setDefaultAccount(mContext.getContentResolver(),
+                    accountWithDataSet == null ? null : accountWithDataSet.getAccountOrNull());*/
         } finally {
             StrictMode.setThreadPolicy(oldPolicy);
         }
