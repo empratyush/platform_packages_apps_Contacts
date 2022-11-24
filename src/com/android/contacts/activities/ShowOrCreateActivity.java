@@ -39,6 +39,7 @@ import com.android.contacts.ContactsUtils;
 import com.android.contacts.R;
 import com.android.contacts.util.ImplicitIntentsUtil;
 import com.android.contacts.util.NotifyingAsyncQueryHandler;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 /**
  * Handle several edge cases around showing or possibly creating contacts in
@@ -219,7 +220,7 @@ public final class ShowOrCreateActivity extends ContactsActivity
                 final CharSequence message = getResources().getString(
                         R.string.add_contact_dlg_message_fmt, mCreateDescrip);
 
-                return new AlertDialog.Builder(this)
+                return new MaterialAlertDialogBuilder(this,R.style.MaterialDialog)
                         .setMessage(message)
                         .setPositiveButton(android.R.string.ok,
                                 new IntentClickListener(this, createIntent))

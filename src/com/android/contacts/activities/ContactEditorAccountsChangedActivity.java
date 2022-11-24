@@ -38,6 +38,7 @@ import com.android.contacts.model.account.AccountWithDataSet;
 import com.android.contacts.model.account.AccountsLoader;
 import com.android.contacts.util.AccountsListAdapter;
 import com.android.contacts.util.ImplicitIntentsUtil;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.List;
 
@@ -55,7 +56,7 @@ public class ContactEditorAccountsChangedActivity extends Activity
 
     private AccountsListAdapter mAccountListAdapter;
     private ContactEditorUtils mEditorUtils;
-    private AlertDialog mDialog;
+    private androidx.appcompat.app.AlertDialog mDialog;
 
     private final OnItemClickListener mAccountListItemClickListener = new OnItemClickListener() {
         @Override
@@ -181,7 +182,7 @@ public class ContactEditorAccountsChangedActivity extends Activity
         if (mDialog != null && mDialog.isShowing()) {
             mDialog.dismiss();
         }
-        mDialog = new AlertDialog.Builder(this)
+        mDialog = new MaterialAlertDialogBuilder(this,R.style.MaterialDialog)
                 .setView(view)
                 .setOnCancelListener(new DialogInterface.OnCancelListener() {
                     @Override

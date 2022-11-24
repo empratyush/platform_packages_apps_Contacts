@@ -37,6 +37,7 @@ import com.android.contacts.model.AccountTypeManager;
 import com.android.contacts.model.account.AccountType;
 import com.android.contacts.model.account.AccountWithDataSet;
 import com.android.contacts.vcard.ImportVCardActivity;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.List;
 
@@ -144,14 +145,13 @@ public class AccountSelectionUtil {
                 }
             };
         }
-        final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(activity,R.style.MaterialDialog);
         final TextView title = (TextView) View.inflate(activity, R.layout.dialog_title, null);
         title.setText(R.string.dialog_new_contact_account);
         builder.setCustomTitle(title);
         builder.setSingleChoiceItems(accountAdapter, 0, onClickListener);
         builder.setOnCancelListener(onCancelListener);
-        final AlertDialog result = builder.create();
-        return result;
+        return builder.create();
     }
 
     public static void doImport(Activity activity, int resId, AccountWithDataSet account,

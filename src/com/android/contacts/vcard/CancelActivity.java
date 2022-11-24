@@ -29,6 +29,7 @@ import android.os.IBinder;
 import android.util.Log;
 
 import com.android.contacts.R;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 /**
  * The Activity for canceling vCard import/export.
@@ -89,14 +90,14 @@ public class CancelActivity extends Activity implements ServiceConnection {
             } else {
                 message = getString(R.string.cancel_export_confirmation_message, mDisplayName);
             }
-            final AlertDialog.Builder builder = new AlertDialog.Builder(this)
+            final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this,R.style.MaterialDialog)
                     .setMessage(message)
                     .setPositiveButton(R.string.yes_button, new RequestCancelListener())
                     .setOnCancelListener(mCancelListener)
                     .setNegativeButton(R.string.no_button, mCancelListener);
             return builder.create();
         } else if (id == R.id.dialog_cancel_failed) {
-            final AlertDialog.Builder builder = new AlertDialog.Builder(this)
+            final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this,R.style.MaterialDialog)
                     .setTitle(R.string.cancel_vcard_import_or_export_failed)
                     .setIconAttribute(android.R.attr.alertDialogIcon)
                     .setMessage(getString(R.string.fail_reason_unknown))

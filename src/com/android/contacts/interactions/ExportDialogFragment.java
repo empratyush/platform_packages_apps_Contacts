@@ -43,6 +43,7 @@ import com.android.contacts.util.ImplicitIntentsUtil;
 import com.android.contacts.vcard.ExportVCardActivity;
 import com.android.contacts.vcard.ShareVCardActivity;
 import com.android.contacts.vcard.VCardCommonArguments;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 /**
  * An dialog invoked to import/export contacts.
@@ -162,7 +163,7 @@ public class ExportDialogFragment extends DialogFragment {
         };
         final TextView title = (TextView) View.inflate(getActivity(), R.layout.dialog_title, null);
         title.setText(R.string.dialog_export);
-        return new AlertDialog.Builder(getActivity())
+        return new MaterialAlertDialogBuilder(getActivity(),R.style.MaterialDialog)
                 .setCustomTitle(title)
                 .setSingleChoiceItems(adapter, -1, clickListener)
                 .create();

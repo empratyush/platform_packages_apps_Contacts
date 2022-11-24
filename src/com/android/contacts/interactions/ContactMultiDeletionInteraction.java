@@ -17,7 +17,6 @@
 package com.android.contacts.interactions;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.LoaderManager.LoaderCallbacks;
@@ -32,6 +31,8 @@ import android.provider.ContactsContract.RawContacts;
 import android.text.TextUtils;
 import android.util.Log;
 
+import androidx.appcompat.app.AlertDialog;
+
 import com.android.contacts.ContactSaveService;
 import com.android.contacts.R;
 import com.android.contacts.model.AccountTypeManager;
@@ -39,6 +40,7 @@ import com.android.contacts.model.account.AccountType;
 import com.android.contacts.preference.ContactsPreferences;
 import com.android.contacts.util.ContactDisplayUtils;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.common.collect.Sets;
 
 import java.util.HashSet;
@@ -270,7 +272,7 @@ public class ContactMultiDeletionInteraction extends Fragment
 
     private void showDialog(int messageId, int positiveButtonId, final long[] contactIds,
             final String[] namesArray) {
-        mDialog = new AlertDialog.Builder(getActivity())
+        mDialog = new MaterialAlertDialogBuilder(getActivity() ,R.style.MaterialDialog)
                 .setIconAttribute(android.R.attr.alertDialogIcon)
                 .setMessage(messageId)
                 .setNegativeButton(android.R.string.cancel, null)

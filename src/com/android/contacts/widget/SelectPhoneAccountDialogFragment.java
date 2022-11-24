@@ -16,7 +16,6 @@
 
 package com.android.contacts.widget;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
@@ -39,9 +38,12 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+
 import com.android.contacts.R;
 import com.android.contacts.compat.PhoneAccountCompat;
 import com.android.contacts.compat.PhoneNumberUtilsCompat;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -185,7 +187,7 @@ public class SelectPhoneAccountDialogFragment extends DialogFragment {
             }
         };
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getActivity(),R.style.MaterialDialog);
         ListAdapter selectAccountListAdapter = new SelectAccountListAdapter(
                 builder.getContext(),
                 R.layout.select_account_list_item,

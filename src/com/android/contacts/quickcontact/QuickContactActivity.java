@@ -1544,7 +1544,7 @@ public class QuickContactActivity extends ContactsActivity {
                 phoneContentDescription = com.android.contacts.util.ContactDisplayUtils
                         .getTelephoneTtsSpannable(primaryContentDescription.toString(), header);
                 iconResourceId = R.drawable.quantum_ic_phone_vd_theme_24;
-                icon = res.getDrawable(iconResourceId);
+                icon = ResourcesCompat.getDrawable(res,iconResourceId, res.newTheme());
                 if (PhoneCapabilityTester.isPhone(context)) {
                     intent = CallUtil.getCallIntent(phone.getNumber());
                     intent.putExtra(EXTRA_ACTION_TYPE, ActionType.CALL);
@@ -1553,7 +1553,7 @@ public class QuickContactActivity extends ContactsActivity {
                         Uri.fromParts(ContactsUtils.SCHEME_SMSTO, phone.getNumber(), null));
                 alternateIntent.putExtra(EXTRA_ACTION_TYPE, ActionType.SMS);
 
-                alternateIcon = res.getDrawable(R.drawable.quantum_ic_message_vd_theme_24);
+                alternateIcon = ResourcesCompat.getDrawable(res,R.drawable.quantum_ic_message_vd_theme_24, res.newTheme());
                 alternateContentDescription.append(res.getString(R.string.sms_custom, header));
                 smsContentDescription = com.android.contacts.util.ContactDisplayUtils
                         .getTelephoneTtsSpannable(alternateContentDescription.toString(), header);

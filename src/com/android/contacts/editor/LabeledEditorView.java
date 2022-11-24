@@ -16,7 +16,6 @@
 
 package com.android.contacts.editor;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -44,6 +43,8 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+
 import com.android.contacts.ContactsUtils;
 import com.android.contacts.R;
 import com.android.contacts.model.RawContactDelta;
@@ -53,6 +54,7 @@ import com.android.contacts.model.account.AccountType.EditType;
 import com.android.contacts.model.dataitem.DataKind;
 import com.android.contacts.util.DialogManager;
 import com.android.contacts.util.DialogManager.DialogShowingView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.List;
 
@@ -439,7 +441,7 @@ public abstract class LabeledEditorView extends LinearLayout implements Editor, 
      * no empty text is allowed in any custom label.
      */
     private Dialog createCustomDialog() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getContext(),R.style.MaterialDialog);
         final LayoutInflater layoutInflater = LayoutInflater.from(builder.getContext());
         builder.setTitle(R.string.customLabelPickerTitle);
 
@@ -478,7 +480,7 @@ public abstract class LabeledEditorView extends LinearLayout implements Editor, 
 
         builder.setNegativeButton(android.R.string.cancel, null);
 
-        final AlertDialog dialog = builder.create();
+        final androidx.appcompat.app.AlertDialog dialog = builder.create();
         dialog.setOnShowListener(new OnShowListener() {
             @Override
             public void onShow(DialogInterface dialogInterface) {
@@ -505,7 +507,7 @@ public abstract class LabeledEditorView extends LinearLayout implements Editor, 
         return dialog;
     }
 
-    /* package */ void updateCustomDialogOkButtonState(AlertDialog dialog, EditText editText) {
+    /* package */ void updateCustomDialogOkButtonState(androidx.appcompat.app.AlertDialog dialog, EditText editText) {
         final Button okButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
         okButton.setEnabled(!TextUtils.isEmpty(editText.getText().toString().trim()));
     }

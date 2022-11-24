@@ -32,6 +32,7 @@ import android.text.TextUtils;
 
 import com.android.contacts.activities.RequestPermissionsActivity;
 import com.android.contacts.util.ImplicitIntentsUtil;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 /**
  * Activity that intercepts DIAL and VIEW intents for phone numbers for devices that can not
@@ -72,8 +73,8 @@ public class NonPhoneActivity extends ContactsActivity {
             implements OnClickListener {
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
-            final AlertDialog alertDialog;
-            alertDialog = new AlertDialog.Builder(getActivity(), R.style.NonPhoneDialogTheme)
+            final androidx.appcompat.app.AlertDialog alertDialog;
+            alertDialog = new MaterialAlertDialogBuilder(getActivity(),R.style.MaterialDialog)
                     .create();
             alertDialog.setTitle(R.string.non_phone_caption);
             alertDialog.setMessage(getArgumentPhoneNumber());

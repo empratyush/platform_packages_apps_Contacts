@@ -25,6 +25,7 @@ import android.os.Bundle;
 import com.android.contacts.ContactSaveService;
 import com.android.contacts.R;
 import com.android.contacts.activities.PeopleActivity;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 /**
  * A dialog for deleting a group.
@@ -48,7 +49,7 @@ public class GroupDeletionDialogFragment extends DialogFragment {
         String label = getArguments().getString(ARG_LABEL);
         String message = getActivity().getString(R.string.delete_group_dialog_message, label);
 
-        return new AlertDialog.Builder(getActivity())
+        return new MaterialAlertDialogBuilder(getActivity(),R.style.MaterialDialog)
                 .setIconAttribute(android.R.attr.alertDialogIcon)
                 .setMessage(message)
                 .setPositiveButton(android.R.string.ok,

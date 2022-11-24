@@ -23,6 +23,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.android.contacts.R;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 /**
  * Shows a dialog asking the user whether to apply pending changes before joining the contact.
@@ -69,7 +70,7 @@ public class JoinContactConfirmationDialogFragment extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getActivity(),R.style.MaterialDialog);
         builder.setMessage(R.string.joinConfirmation);
         builder.setPositiveButton(R.string.joinConfirmation_positive_button,
                 new DialogInterface.OnClickListener() {

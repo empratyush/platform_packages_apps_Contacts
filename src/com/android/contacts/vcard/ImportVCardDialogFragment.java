@@ -24,6 +24,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import com.android.contacts.R;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 /** Asks for confirmation before importing contacts from a vcard. */
 public class ImportVCardDialogFragment extends DialogFragment {
@@ -65,7 +66,7 @@ public class ImportVCardDialogFragment extends DialogFragment {
         final Uri sourceUri = getArguments().getParcelable(ARG_SOURCE_URI);
         final String sourceDisplayName = getArguments().getString(ARG_SOURCE_DISPLAY_NAME);
 
-        return new AlertDialog.Builder(getActivity())
+        return new MaterialAlertDialogBuilder(getActivity(),R.style.MaterialDialog)
                 .setIconAttribute(android.R.attr.alertDialogIcon)
                 .setMessage(R.string.import_from_vcf_file_confirmation_message)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {

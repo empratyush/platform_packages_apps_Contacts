@@ -32,6 +32,7 @@ import com.android.contacts.model.account.AccountType;
 import com.android.contacts.model.account.AccountWithDataSet;
 import com.android.contacts.model.account.GoogleAccountType;
 import com.android.contacts.preference.ContactsPreferences;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 /**
  * Should only be started from an activity that implements {@link PickRawContactListener}.
@@ -176,7 +177,7 @@ public class PickRawContactDialogFragment extends DialogFragment {
             throw new IllegalArgumentException("Dialog created with null RawContactsMetadata");
         }
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getActivity(),R.style.MaterialDialog);
         mAdapter = new RawContactAccountListAdapter(getContext(), metadata);
         if (metadata.showReadOnly) {
             builder.setTitle(R.string.contact_editor_pick_linked_contact_dialog_title);

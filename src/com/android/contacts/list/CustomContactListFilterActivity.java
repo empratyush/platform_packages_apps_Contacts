@@ -67,6 +67,7 @@ import com.android.contacts.util.LocalizedNameResolver;
 import com.android.contacts.util.WeakAsyncTask;
 import com.android.contacts.util.concurrent.ContactsExecutors;
 import com.android.contacts.util.concurrent.ListenableFutureLoader;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
 import com.google.common.util.concurrent.Futures;
@@ -788,7 +789,7 @@ public class CustomContactListFilterActivity extends Activity implements
         if (syncMode == SYNC_MODE_EVERYTHING && shouldSyncUngrouped
                 && !child.equals(account.mUngrouped)) {
             // Warn before removing this group when it would cause ungrouped to stop syncing
-            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this,R.style.MaterialDialog);
             final CharSequence removeMessage = this.getString(
                     R.string.display_warn_remove_ungrouped, title);
             builder.setTitle(R.string.menu_sync_remove);
@@ -980,7 +981,7 @@ public class CustomContactListFilterActivity extends Activity implements
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
-            return new AlertDialog.Builder(getActivity(), getTheme())
+            return new MaterialAlertDialogBuilder(getActivity(),R.style.MaterialDialog)
                     .setMessage(R.string.leave_customize_confirmation_dialog_message)
                     .setNegativeButton(android.R.string.no, null)
                     .setPositiveButton(android.R.string.yes, this)

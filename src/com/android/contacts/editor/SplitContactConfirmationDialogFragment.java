@@ -24,6 +24,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.android.contacts.R;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 /**
  * Shows a dialog asking the user whether to split the contact. The result is passed back
@@ -77,7 +78,7 @@ public class SplitContactConfirmationDialogFragment extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getActivity(),R.style.MaterialDialog);
         builder.setMessage(mHasPendingChanges
                 ? R.string.splitConfirmationWithPendingChanges
                 : R.string.splitConfirmation);

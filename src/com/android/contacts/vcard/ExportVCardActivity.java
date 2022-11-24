@@ -36,6 +36,7 @@ import android.util.Log;
 
 import com.android.contacts.R;
 import com.android.contacts.activities.RequestImportVCardPermissionsActivity;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.List;
 
@@ -179,7 +180,7 @@ public class ExportVCardActivity extends Activity implements ServiceConnection,
     protected Dialog onCreateDialog(int id, Bundle bundle) {
         if (id == R.id.dialog_fail_to_export_with_reason) {
             mProcessOngoing = false;
-            return new AlertDialog.Builder(this)
+            return new MaterialAlertDialogBuilder(this)
                     .setTitle(R.string.exporting_contact_failed_title)
                     .setMessage(getString(R.string.exporting_contact_failed_message,
                             mErrorReason != null ? mErrorReason :

@@ -30,6 +30,7 @@ import android.provider.ContactsContract;
 
 import com.android.contacts.R;
 import com.android.contacts.util.PermissionsUtil;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 /**
  * Dialog that clears the frequently contacted list after confirming with the user.
@@ -70,7 +71,7 @@ public class ClearFrequentsDialog extends DialogFragment {
                 task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
             }
         };
-        return new AlertDialog.Builder(getActivity())
+        return new MaterialAlertDialogBuilder(getActivity(),R.style.MaterialDialog)
             .setTitle(R.string.clearFrequentsConfirmation_title)
             .setMessage(R.string.clearFrequentsConfirmation)
             .setNegativeButton(android.R.string.cancel, null)

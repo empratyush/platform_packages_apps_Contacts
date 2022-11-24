@@ -23,6 +23,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.android.contacts.R;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 /**
  * Confirmation dialog for turning global auto-sync setting on.
@@ -65,7 +66,7 @@ public class EnableGlobalSyncDialogFragment extends DialogFragment{
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final Listener targetListener = (Listener) getTargetFragment();
-        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getActivity(),R.style.MaterialDialog);
         builder.setTitle(R.string.turn_auto_sync_on_dialog_title)
                 .setMessage(R.string.turn_auto_sync_on_dialog_body)
                 .setPositiveButton(R.string.turn_auto_sync_on_dialog_confirm_btn,

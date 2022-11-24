@@ -44,6 +44,7 @@ import com.android.contacts.model.account.AccountType;
 import com.android.contacts.preference.ContactsPreferences;
 import com.android.contacts.util.ContactDisplayUtils;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.Sets;
 
@@ -91,7 +92,7 @@ public class ContactDeletionInteraction extends Fragment
     private String mDisplayNameAlt;
     private boolean mFinishActivityWhenDone;
     private Context mContext;
-    private AlertDialog mDialog;
+    private androidx.appcompat.app.AlertDialog mDialog;
 
     /** This is a wrapper around the fragment's loader manager to be used only during testing. */
     private TestLoaderManagerBase mTestLoaderManager;
@@ -306,7 +307,7 @@ public class ContactDeletionInteraction extends Fragment
     }
 
     private void showDialog(int messageId, int positiveButtonId, final Uri contactUri) {
-        mDialog = new AlertDialog.Builder(getActivity())
+        mDialog = new MaterialAlertDialogBuilder(getActivity(),R.style.MaterialDialog)
                 .setIconAttribute(android.R.attr.alertDialogIcon)
                 .setMessage(messageId)
                 .setNegativeButton(android.R.string.cancel, null)

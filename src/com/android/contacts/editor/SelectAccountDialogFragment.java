@@ -32,6 +32,7 @@ import com.android.contacts.model.account.AccountInfo;
 import com.android.contacts.model.account.AccountWithDataSet;
 import com.android.contacts.model.account.AccountsLoader;
 import com.android.contacts.util.AccountsListAdapter;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.common.base.Preconditions;
 
 import java.util.List;
@@ -90,7 +91,7 @@ public final class SelectAccountDialogFragment extends DialogFragment
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getActivity(),R.style.MaterialDialog);
         final Bundle args = getArguments();
 
         mAccountsAdapter = new AccountsListAdapter(builder.getContext());
@@ -110,8 +111,7 @@ public final class SelectAccountDialogFragment extends DialogFragment
         title.setText(args.getInt(KEY_TITLE_RES_ID));
         builder.setCustomTitle(title);
         builder.setSingleChoiceItems(mAccountsAdapter, 0, clickListener);
-        final AlertDialog result = builder.create();
-        return result;
+        return builder.create();
     }
 
     @Override

@@ -54,6 +54,7 @@ import com.android.vcard.VCardSourceDetector;
 import com.android.vcard.exception.VCardException;
 import com.android.vcard.exception.VCardNestedException;
 import com.android.vcard.exception.VCardVersionException;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -792,7 +793,7 @@ public class ImportVCardActivity extends Activity implements ImportVCardDialogFr
                 Log.e(LOG_TAG, "Error message is null while it must not.");
                 message = getString(R.string.fail_reason_unknown);
             }
-            final AlertDialog.Builder builder = new AlertDialog.Builder(this)
+            final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this,R.style.MaterialDialog)
                 .setTitle(getString(R.string.reading_vcard_failed_title))
                 .setIconAttribute(android.R.attr.alertDialogIcon)
                 .setMessage(message)

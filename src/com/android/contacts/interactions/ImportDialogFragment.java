@@ -49,6 +49,7 @@ import com.android.contacts.model.SimContact;
 import com.android.contacts.model.account.AccountInfo;
 import com.android.contacts.model.account.AccountWithDataSet;
 import com.android.contacts.util.AccountSelectionUtil;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.common.util.concurrent.Futures;
 
 import java.util.HashMap;
@@ -216,7 +217,7 @@ public class ImportDialogFragment extends DialogFragment {
             }
         };
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), getTheme())
+        final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getActivity(),R.style.MaterialDialog)
                 .setTitle(R.string.dialog_import)
                 .setNegativeButton(android.R.string.cancel, null);
         if (adapter.isEmpty()) {
